@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_25_132029) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_25_143555) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cars", force: :cascade do |t|
+    t.string "make"
+    t.string "model"
+    t.integer "year"
+    t.boolean "sunroof"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "color"
+    t.bigint "person_id"
+    t.index ["person_id"], name: "index_cars_on_person_id"
+  end
 
   create_table "citizenships", force: :cascade do |t|
     t.bigint "country_id", null: false
@@ -39,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_25_132029) do
     t.integer "age"
   end
 
+  add_foreign_key "cars", "people"
   add_foreign_key "citizenships", "countries"
   add_foreign_key "citizenships", "people"
 end

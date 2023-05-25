@@ -1,6 +1,7 @@
 class Person < ApplicationRecord
     has_many :citizenships
     has_many :countries, through: :citizenships
+    has_many :cars
 
     validates :first_name, :last_name, :phone_number, :age, presence: true
     validates :phone_number, uniqueness: true
