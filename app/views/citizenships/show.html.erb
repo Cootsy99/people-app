@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @citizenship %>
+
+<div>
+  <%= link_to "Edit this citizenship", edit_citizenship_path(@citizenship) %> |
+  <%= link_to "Back to citizenships", citizenships_path %>
+
+  <%= button_to "Destroy this citizenship", @citizenship, method: :delete %>
+</div>

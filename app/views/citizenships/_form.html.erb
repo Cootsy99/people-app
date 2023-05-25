@@ -1,0 +1,27 @@
+<%= form_with(model: citizenship) do |form| %>
+  <% if citizenship.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(citizenship.errors.count, "error") %> prohibited this citizenship from being saved:</h2>
+
+      <ul>
+        <% citizenship.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :country_id, style: "display: block" %>
+    <%= form.text_field :country_id %>
+  </div>
+
+  <div>
+    <%= form.label :person_id, style: "display: block" %>
+    <%= form.text_field :person_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

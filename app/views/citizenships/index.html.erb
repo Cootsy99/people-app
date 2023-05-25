@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Citizenships</h1>
+
+<div id="citizenships">
+  <% @citizenships.each do |citizenship| %>
+    <%= render citizenship %>
+    <p>
+      <%= link_to "Show this citizenship", citizenship %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New citizenship", new_citizenship_path %>
